@@ -1,0 +1,46 @@
+# Flutter
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+*.iml
+android.iml
+
+# Firebase
+firebase-debug.log
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+*.log
+
+# Dart/Flutter/Plugins
+doc/api/
+.dart_tool/
+.packages
+pubspec.lock
+.pub-cache/
+
+# iOS
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/Flutter/Flutter.podspec
+
+# Android
+android/.gradle/
+android/local.properties
