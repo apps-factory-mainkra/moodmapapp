@@ -1,0 +1,3 @@
+{
+  "value": "{'spec_id': 'proj-4470b4a6', 'total_score': 9.0, 'viability': 9.0, 'market_potential': 10.0, 'specificity': 9.0, 'retention_likelihood': 6.3, 'technical_fit': 10.0, 'rationale': {'viability': 'Dificultad MVP: low. Backend complejo: False. APIs externas: False.', 'market_potential': 'Audiencia: Jóvenes adultos (18-35 años) con interés. Monetización: freemium.', 'specificity': 'Problema: Dificultad para identificar patrones en el estado . Diferenciación clara: True.', 'retention_likelihood': 'Screening: 4 pantallas. Features: 5 núcleo.', 'technical_fit': 'Firebase: OK. Real-time: False. Pagos: False.'}, 'is_viable': True}"
+}
