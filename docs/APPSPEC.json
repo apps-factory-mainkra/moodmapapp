@@ -1,0 +1,144 @@
+{
+  "id": "proj-4470b4a6",
+  "title": "MoodMap",
+  "slug": "moodmapapp",
+  "one_liner": "Track your daily mood and discover personalized activities to boost your well-being.",
+  "target_audience": "Jóvenes adultos (18-35 años) con interés en el bienestar mental, que buscan herramientas sencillas para gestionar su estado de ánimo y encontrar actividades relajantes o motivadoras. Frecuencia: Diaria o varias veces por semana.",
+  "niche": "Bienestar Mental / Autoayuda",
+  "primary_problem": "Dificultad para identificar patrones en el estado de ánimo y encontrar actividades que realmente mejoren el bienestar, debido a la sobrecarga de información y opciones disponibles.",
+  "value_proposition": "Ofrece una forma sencilla y visual de registrar el estado de ánimo diario, identificando tendencias y sugiriendo actividades personalizadas basadas en ese estado, sin la complejidad de aplicaciones de mindfulness o terapias online.",
+  "differentiation": "A diferencia de las apps de meditación que requieren un compromiso a largo plazo, MoodMap se centra en la auto-observación diaria y ofrece sugerencias rápidas y adaptadas al estado de ánimo actual del usuario. No hay contenido extenso ni guías predefinidas; solo recomendaciones basadas en el registro.",
+  "mvp_difficulty": "low",
+  "requires_complex_backend": false,
+  "requires_real_time": false,
+  "requires_payments": false,
+  "requires_external_api": false,
+  "mvp": {
+    "core_features": [
+      {
+        "name": "Registro Diario de Estado de Ánimo (Escala Visual)",
+        "description": "",
+        "screens_involved": [],
+        "requires_backend": false,
+        "difficulty": "low"
+      },
+      {
+        "name": "Sugerencias Personalizadas de Actividades (Lista Corta)",
+        "description": "",
+        "screens_involved": [],
+        "requires_backend": false,
+        "difficulty": "low"
+      },
+      {
+        "name": "Visualización de Tendencias del Estado de Ánimo (Gráfico Simple)",
+        "description": "",
+        "screens_involved": [],
+        "requires_backend": false,
+        "difficulty": "low"
+      },
+      {
+        "name": "Creación de Listas de Favoritos de Actividades",
+        "description": "",
+        "screens_involved": [],
+        "requires_backend": false,
+        "difficulty": "low"
+      },
+      {
+        "name": "Recordatorios para el Registro Diario",
+        "description": "",
+        "screens_involved": [],
+        "requires_backend": false,
+        "difficulty": "low"
+      }
+    ],
+    "screens": [
+      {
+        "name": "AuthScreen",
+        "title": "Acceso",
+        "purpose": "",
+        "accessible_as": "login",
+        "requires_auth": true,
+        "features": [],
+        "components": [],
+        "api_calls": []
+      },
+      {
+        "name": "HomeScreen",
+        "title": "Panel Principal",
+        "purpose": "",
+        "accessible_as": "home",
+        "requires_auth": true,
+        "features": [],
+        "components": [],
+        "api_calls": []
+      },
+      {
+        "name": "MoodEntryScreen",
+        "title": "Registro de Estado de Ánimo",
+        "purpose": "",
+        "accessible_as": "action",
+        "requires_auth": true,
+        "features": [],
+        "components": [],
+        "api_calls": []
+      },
+      {
+        "name": "ActivitySuggestionsScreen",
+        "title": "Sugerencias de Actividades",
+        "purpose": "",
+        "accessible_as": "activity",
+        "requires_auth": true,
+        "features": [],
+        "components": [],
+        "api_calls": []
+      }
+    ],
+    "entities": [
+      {
+        "name": "User",
+        "description": "Usuario del sistema, con registro de estado de ánimo y preferencias.",
+        "fields": {},
+        "relationships": [],
+        "firestore_collection": null
+      },
+      {
+        "name": "MoodEntry",
+        "description": "Registro individual del estado de ánimo del usuario en un momento específico.",
+        "fields": {},
+        "relationships": [],
+        "firestore_collection": null
+      }
+    ],
+    "onboarding_flow": "El usuario se registra (Firebase Auth), visualiza una breve introducción a la app y es dirigido al Panel Principal.",
+    "authentication": "email_password",
+    "primary_flow": "El usuario registra su estado de ánimo diariamente, explora las sugerencias de actividades personalizadas y visualiza sus tendencias a lo largo del tiempo."
+  },
+  "business_model": {
+    "monetization": "freemium",
+    "free_tier_limits": {},
+    "premium_features": [],
+    "pricing_tier": null,
+    "target_revenue_per_user": null
+  },
+  "firebase_config": {
+    "use_auth": true,
+    "use_firestore": true,
+    "use_storage": false,
+    "use_fcm": false,
+    "use_functions": false,
+    "use_analytics": true,
+    "collections": {}
+  },
+  "additional_services": [],
+  "tags": [
+    "bienestar",
+    "salud mental",
+    "autoayuda",
+    "mood tracking",
+    "flutter"
+  ],
+  "created_at": "2026-03-08T20:51:54.976102",
+  "functional_doc": "# DOCUMENTO FUNCIONAL: MoodMap\n\n## 1. Resumen Ejecutivo\n\n**Producto:** MoodMap  \n**Público objetivo:** Jóvenes adultos (18-35 años) con interés en el bienestar mental, que buscan herramientas sencillas para gestionar su estado de ánimo y encontrar actividades relajantes o motivadoras. Frecuencia: Diaria o varias veces por semana.  \n**Problema principal:** Dificultad para identificar patrones en el estado de ánimo y encontrar actividades que realmente mejoren el bienestar, debido a la sobrecarga de información y opciones disponibles.  \n**Propuesta de valor:** Ofrece una forma sencilla y visual de registrar el estado de ánimo diario, identificando tendencias y sugiriendo actividades personalizadas basadas en ese estado, sin la complejidad de aplicaciones de mindfulness o terapias online.  \n**Modelo de monetización:** Freemium\n\nMoodMap es una aplicación móvil diseñada para resolver un problema específico y recurrente en la vida del usuario objetivo. La propuesta se basa en una experiencia simple, enfocada y diferenciada que proporciona valor en la primera sesión. El objetivo del MVP es validar la hipótesis de mercado, medir retención y determinar si el producto merece inversión adicional.\n\n---\n\n## 2. Contexto del Problema y Oportunidad\n\n### El problema\n\nDificultad para identificar patrones en el estado de ánimo y encontrar actividades que realmente mejoren el bienestar, debido a la sobrecarga de información y opciones disponibles.\n\nEsta es una necesidad cotidiana, frecuente y claramente reconocible. Los usuarios actuales resuelven esto de forma manual, desorganizada o con herramientas no optimizadas, lo que genera fricción, errores y mala experiencia.\n\n### La oportunidad\n\nLa oportunidad existe porque:\n- **Audiencia clara:** Jóvenes adultos (18-35 años) con interés en el bienestar mental, que buscan herramientas sencillas para gestionar su estado de ánimo y encontrar actividades relajantes o motivadoras. Frecuencia: Diaria o varias veces por semana.\n- **Nicho específico:** Bienestar Mental / Autoayuda\n- **Diferenciación:** A diferencia de las apps de meditación que requieren un compromiso a largo plazo, MoodMap se centra en la auto-observación diaria y ofrece sugerencias rápidas y adaptadas al estado de ánimo actual del usuario. No hay contenido extenso ni guías predefinidas; solo recomendaciones basadas en el registro.\n\nCon la tecnología actual (Firebase, Flutter, etc.), es posible construir una solución MVP de forma rápida, elegante y escalable.\n\n---\n\n## 3. Público Objetivo\n\n### Perfil principal\n\nJóvenes adultos (18-35 años) con interés en el bienestar mental, que buscan herramientas sencillas para gestionar su estado de ánimo y encontrar actividades relajantes o motivadoras. Frecuencia: Diaria o varias veces por semana.\n\n### Comportamiento esperado\n\nEl usuario objetivo tiene las siguientes características:\n- Necesita resolver el problema de forma recurrente\n- Valora rapidez y simplicidad sobre complejidad funcional\n- Prefiere experiencias móviles claras\n- Tiene baja tolerancia a procesos tediosos\n\n---\n\n## 4. Propuesta de valor\n\n**Ofrece una forma sencilla y visual de registrar el estado de ánimo diario, identificando tendencias y sugiriendo actividades personalizadas basadas en ese estado, sin la complejidad de aplicaciones de mindfulness o terapias online.**\n\nLa diferenciación principal es: **A diferencia de las apps de meditación que requieren un compromiso a largo plazo, MoodMap se centra en la auto-observación diaria y ofrece sugerencias rápidas y adaptadas al estado de ánimo actual del usuario. No hay contenido extenso ni guías predefinidas; solo recomendaciones basadas en el registro.**\n\nEsta propuesta posiciona a MoodMap como una solución específica, no genérica. No es una plataforma con múltiples usos ambiguos, sino una herramienta enfocada en un problema concreto.\n\n---\n\n## 5. Objetivos del MVP\n\n### Objetivos de negocio\n- Validar que el problema es lo bastante frecuente y relevante\n- Conseguir primeras señales de retención y uso recurrente\n- Medir disposición a pagar o usar publicidad\n- Obtener feedback cualitativo de usuarios reales\n\n### Objetivos del producto\n- Resolver el problema principal con el menor esfuerzo del usuario\n- Generar valor percibido en la primera sesión\n- Facilitar el uso recurrente mediante persistencia y claridad\n- Permitir crecimiento futuro sin rehacer la base técnica\n\n---\n\n## 6. Alcance del MVP\n\n### Incluido\n\nFuncionalidades cores:\n\n- Registro Diario de Estado de Ánimo (Escala Visual)\n- Sugerencias Personalizadas de Actividades (Lista Corta)\n- Visualización de Tendencias del Estado de Ánimo (Gráfico Simple)\n- Creación de Listas de Favoritos de Actividades\n- Recordatorios para el Registro Diario\n\n### Pantallas iniciales\n\n- **Acceso** (AuthScreen): \n- **Panel Principal** (HomeScreen): \n- **Registro de Estado de Ánimo** (MoodEntryScreen): \n- **Sugerencias de Actividades** (ActivitySuggestionsScreen): \n\n### Entidades principales\n\n- **User**: Usuario del sistema, con registro de estado de ánimo y preferencias.\n- **MoodEntry**: Registro individual del estado de ánimo del usuario en un momento específico.\n\n### Excluido en esta fase\n\n- Personalizaciones avanzadas\n- Automatizaciones complejas\n- Paneles administrativos\n- Integraciones profundas\n- Reporting avanzado\n- Internacionalización amplia\n\n---\n\n## 7. Flujo Principal del Usuario\n\n### Primera visita\n\n1. **Acceso:** Usuario entiende rápidamente qué hace la app\n2. **Registro/Login:** Proceso simple (email/contraseña o TOTP)\n3. **Onboarding:** El usuario se registra (Firebase Auth), visualiza una breve introducción a la app y es dirigido al Panel Principal.\n4. **Primera acción:** Ejecuta inmediatamente una acción de valor\n\n### Uso recurrente\n\n1. **Acceso:** Abre la app\n2. **Visualización:** Ve el estado actual o lista de pendientes\n3. **Acción:** Realiza la acción principal\n4. **Confirmación:** Obtiene feedback visual de éxito\n5. **Salida:** Cierra la app con sensación de progreso\n\n---\n\n## 8. Requisitos Funcionales Prioritarios\n\n1. El usuario puede registrarse o acceder en menos de 1 minuto\n2. La acción principal se puede completar en menos de 3 pasos\n3. Los datos persisten correctamente entre sesiones\n4. Existe feedback visual para toda acción importante\n5. El usuario puede salir y volver sin perder contexto\n\n---\n\n## 9. Reglas de Negocio\n\n- **Acceso al valor:** La funcionalidad principal debe ser accesible desde la versión gratuita\n- **Monetización clara:** Las limitaciones o features premium deben ser obvias, no sorpresivas\n- **Sin fricción artificial:** No bloquear funcionalidades básicas para forzar conversión\n- **Notificaciones útiles:** Si existen, deben ser contextuales, no spam\n\n---\n\n## 10. Analítica y Métricas Clave\n\n### Eventos críticos a medir\n\n- `user_registered`\n- `first_action_completed`\n- `action_repeated`\n- `user_day_7_returned`\n- `user_day_30_returned`\n- `premium_feature_viewed`\n- `premium_feature_purchased`\n\n### KPIs objetivo\n\n- **Activación:** 60%+ de usuarios registrados completa la primera acción\n- **Retención D1:** 40%+\n- **Retención D7:** 25%+\n- **Retención D30:** 15%+\n- **Conversión premium:** Si aplica, 5%+ de usuarios activos\n\n---\n\n## 11. Monetización\n\n**Modelo:** Freemium\n\nLa estrategia es demostrar valor en la capa gratuita y ofrecer features premium que amplíen capacidades sin romper la experiencia base.\n\n---\n\n## 12. Riesgos de Producto y Mitigaciones\n\n### Riesgo 1: Problema insuficientemente doloroso\n**Mitigación:** Validar con entrevistas reales antes de escalar inversión\n\n### Riesgo 2: Baja retención\n**Mitigación:** Revisar velocidad hasta valor y claridad de propuesta en primeros 60 segundos\n\n### Riesgo 3: Monotización fallida\n**Mitigación:** Medir antes de apretar: no bloquear valor principal\n\n---\n\n## 13. Criterios de Aceptación del MVP\n\n- El usuario comprende la propuesta en menos de 10 segundos de apertura\n- Puede completar la acción principal sin ambigüedad\n- Los datos se persisten correctamente\n- El flujo es repetible sin esfuerzo adicional\n- Existen eventos analíticos para medir activación y retención\n\n---\n\n## 14. Roadmap Indicativo\n\n### Fase 1: MVP Base (Sprint 1-2)\n- Autenticación\n- Flujo principal funcional\n- Persistencia\n\n### Fase 2: Lanzamiento (Sprint 3)\n- Pulido de UX\n- Testing en dispositivos reales\n- Lanzamiento a App Store / Play Store\n\n### Fase 3: Optimización (Post-lanzamiento)\n- Mejora retención y onboarding\n- Primeras pruebas de monetización\n- Feedback loop con usuarios\n\n---\n\n## 15. Conclusión\n\nMoodMap es viable como MVP porque conecta una audiencia clara con un problema puntual y una solución diferenciada. La recomendación es construir una versión pequeña pero sólida, centrada en el flujo principal, y medir rigurosamente el comportamiento real de usuarios. Si las métricas tempranas acompañan, el producto ofrece una base sólida para evolucionar.\n\n",
+  "technical_doc": "# DOCUMENTO TÉCNICO: MoodMap\n\n## 1. Resumen Técnico Ejecutivo\n\n**Producto:** MoodMap  \n**Stack:** Flutter + Dart (Mobile) | Node.js/Firebase Functions (Backend) | Firestore (Base de datos)  \n**Dificultad MVP:** low  \n**Complejidad técnica:** Baja\n\nEl objetivo técnico es construir una solución pragmática, maintainable y suficientemente escalable para validar MoodMap sin introducir complejidad innecesaria.\n\n---\n\n## 2. Principios Técnicos\n\n- Priorizar simplicidad sobre sofisticación temprana\n- Modularidad: separar concerns claramente\n- Observabilidad: logs y métricas desde el inicio\n- Seguridad: validación en backend, autenticación clara\n- Escalabilidad: evitar puntos de estrangulamiento obvios\n\n---\n\n## 3. Arquitectura\n\n### Capas\n\n1. **Presentación:** Flutter app con widgets reutilizables\n2. **Lógica:** Providers/BLoC para state management\n3. **Datos:** Repositorios con abstracciones\n4. **Backend:** Cloud Functions o API simple\n5. **Persistencia:** Firestore como la fuente de verdad\n\n### Flujo de datos\n\n```\nFlutter UI → Providers/State →  Repositories → \n  Firebase SDK (Auth/Firestore) + API HTTP (si aplica)\n```\n\n---\n\n## 4. Stack Tecnológico Elegido\n\n### Flutter (Mobile)\n- **Framework:** Flutter 3.x + Dart 3.x\n- **State Management:** Riverpod (ligero y poderoso)\n- **Networking:** `http` package + custom wrappers\n- **Local Storage:** `shared_preferences` para datos simples, Firestore para datos sincronizados\n- **Authentication:** `firebase_auth` package\n\n### Backend\n- **Opción A:** Cloud Functions for Firebase (Node.js)\n- **Opción B:** Simple Node.js + Express si necesitas máximo control\n- **Autenticación:** Firebase Auth con reglas de Firestore\n- **Base de datos:** Cloud Firestore con reglas de security bien definidas\n\n### DevOps\n- **Versionado:** Git + GitHub\n- **CI/CD:** GitHub Actions o Firebase Hosting\n- **Secrets:** Variables de entorno por archivo `.env`\n- **Monitoring:** Firebase Console + Sentry para errores\n\n---\n\n## 5. Modelo de Datos (Firestore)\n\n### Colecciones principales\n\n- **User**: Usuario del sistema, con registro de estado de ánimo y preferencias.\n- **MoodEntry**: Registro individual del estado de ánimo del usuario en un momento específico.\n\n### Estructura ejemplo (User)\n\n```\nusers/{uid}/\n  - email: string\n  - name: string\n  - createdAt: timestamp\n  - lastActiveAt: timestamp\n```\n\n### Estructura ejemplo para entidad principal\n\nDependerá de tu caso, pero típicamente:\n\n```\nitems/{itemId}/\n  - userId: string (referencia a usuario)\n  - title: string\n  - description: string\n  - status: enum (pending, completed, archived)\n  - createdAt: timestamp\n  - updatedAt: timestamp\n  - metadata: map (datos adicionales)\n```\n\n---\n\n## 6. APIs y Endpoints\n\n### POST /auth/register\nParámetros: `email`, `password`  \nRetorna: `{success: bool, userId: string, token: string}`\n\n### POST /auth/login\nParámetros: `email`, `password`  \nRetorna: `{success: bool, token: string}`\n\n### GET /items\nAuth: Requerida  \nParámetros: `limit`, `offset`  \nRetorna: `{items: [{id, title, ...}], total: number}`\n\n### POST /items\nAuth: Requerida  \nBody: `{title, description, ...}`  \nRetorna: `{id, ...item}`\n\n### PUT /items/{itemId}\nAuth: Requerida  \nBody: `{title?, description?, status?, ...}`  \nRetorna: `{success: bool, item}`\n\n### DELETE /items/{itemId}\nAuth: Requerida  \nRetorna: `{success: bool}`\n\n---\n\n## 7. Autenticación y Autorización\n\n### Flujo de autenticación\n\n1. Usuario ingresa email/contraseña en la app Flutter\n2. Firebase Auth valida las credenciales\n3. Se emite un ID token\n4. La app incluye el token en headers (`Authorization: Bearer <token>`)\n5. El backend (o Cloud Functions) valida el token antes de cualquier operación\n\n### Reglas de autorización\n\n- Usuario solo puede ver/editar sus propios items\n- El servidor valida la propiedad en cada operación\n- El cliente NO confía en lo que es de su propiedad\n\n---\n\n## 8. Requisitos No Funcionales\n\n### Rendimiento\n- Carga inicial: < 2 segundos\n- Operación principal: < 500ms\n- Paginación: para listas > 20 items\n\n### Escalabilidad\n- Firestore escala automáticamente\n- Cloud Functions escalan bajo demanda\n- Caché local en Flutter para offline support básico\n\n### Seguridad\n- Todas las requests validadas en backend\n- Secretos en .env, no en código fuente\n- HTTPS obligatorio\n- Rate limiting en endpoints sensibles\n\n### Disponibilidad\n- Firebase ofrece 99.95% de SLA\n- Backups automáticos en Firestore\n- Logs centralizados en Firebase Console\n\n---\n\n## 9. Estrategia de Testing\n\n### Unit Tests\n- Validadores de input\n- Parsers de datos\n- Lógica de dominio\n\n### Widget Tests (Flutter)\n- Componentes reutilizables\n- Flujos críticos de UI\n\n### Integration Tests\n- Autenticación end-to-end\n- Crear item → guardar → listar\n- Persistencia en Firestore\n\n### Testing Manual\n- Offline/online transitions\n- Errores de red\n- Sesiones expiradas\n- Múltiples dispositivos\n\n---\n\n## 10. Despliegue\n\n### Backend (Cloud Functions)\n```bash\nfirebase deploy --only functions\n```\n\n### Mobile (TestFlight/Google Play)\n```bash\nflutter build ios/ipa\nflutter build appbundle\n# Upload a TestFlight/Play Console\n```\n\n### Variables por entorno\n\n`.env.development`:\n```\nFIREBASE_PROJECT_ID=project-dev\nAPI_BASE_URL=http://localhost:5001\n```\n\n`.env.production`:\n```\nFIREBASE_PROJECT_ID=project-prod\nAPI_BASE_URL=https://api.example.com\n```\n\n---\n\n## 11. Riesgos Técnicos y Mitigaciones\n\n### Riesgo 1: Modelo de datos mal diseñado\n**Mitigación:** Validar schema antes de implementar a fondo. Firestore permite migración pero es costosa.\n\n### Riesgo 2: Seguridad débil\n**Mitigación:** Validar TODAS las requests en backend. Usar tipos conocidos (TypeScript).\n\n### Riesgo 3: Offline sync complejo\n**Mitigación:** MVP con offline read-only. Sync bidireccional va en fase 2.\n\n---\n\n## 12. Checklist Pre-Producción\n\n- [ ] Autenticación funcional\n- [ ] Reglas de Firestore correctas y testeadas\n- [ ] Logging centralizado\n- [ ] Error handling en todos los endpoints\n- [ ] Rate limiting\n- [ ] Validación de entrada\n- [ ] Tests de integración pasando\n- [ ] Documentación de secrets .env\n- [ ] Backup strategy definida\n- [ ] Runbook de incident\n\n---\n\n## 13. Deuda Técnica Aceptable\n\nEs OK posponer:\n- Optimizaciones de extrema escala\n- Panel administrativo completo\n- Sync offline bidireccional\n- Machine learning / algoritmos avanzados\n- Caching sophisticado\n\nNo es OK posponer:\n- Autenticación y autorización\n- Validación de datos\n- Manejo de errores\n- Logging básico\n\n---\n\n## 14. Conclusión\n\nLa arquitectura propuesta balancear velocidad y solidez. El objetivo es un MVP pragmático, medible y escalable sin sobrecarga técnica. Firebase + Flutter + Node.js  es una combinación probada que permite iterar rápido y escalar sin rehacer todo.\n\n",
+  "readme": "# MoodMap\n\nTrack your daily mood and discover personalized activities to boost your well-being.\n\n## Descripción\n\nOfrece una forma sencilla y visual de registrar el estado de ánimo diario, identificando tendencias y sugiriendo actividades personalizadas basadas en ese estado, sin la complejidad de aplicaciones de mindfulness o terapias online.\n\n**Público objetivo:** Jóvenes adultos (18-35 años) con interés en el bienestar mental, que buscan herramientas sencillas para gestionar su estado de ánimo y encontrar actividades relajantes o motivadoras. Frecuencia: Diaria o varias veces por semana.  \n**Nicho:** Bienestar Mental / Autoayuda\n\n## Características MVP\n\n- Registro Diario de Estado de Ánimo (Escala Visual)\n- Sugerencias Personalizadas de Actividades (Lista Corta)\n- Visualización de Tendencias del Estado de Ánimo (Gráfico Simple)\n- Creación de Listas de Favoritos de Actividades\n- Recordatorios para el Registro Diario\n\n## Tech Stack\n\n- **Mobile:** Flutter + Dart\n- **Backend:** Cloud Functions for Firebase\n- **Base de datos:** Cloud Firestore\n- **Autenticación:** Firebase Auth\n- **Hosting:** Firebase Hosting\n\n## Estructura del proyecto\n\n```\nmoodmapapp/\n├── flutter_app/          # App móvil Flutter\n│   ├── lib/\n│   │   ├── main.dart\n│   │   ├── screens/      # Pantallas del MVP\n│   │   ├── widgets/      # Componentes reutilizables\n│   │   ├── providers/    # State management (Riverpod)\n│   │   ├── repositories/ # Acceso a datos\n│   │   └── models/       # Modelos de datos\n│   ├── pubspec.yaml\n│   └── .env.example\n├── functions/            # Cloud Functions backend\n│   ├── src/\n│   │   ├── index.ts\n│   │   ├── routes.ts\n│   │   └── services/\n│   ├── package.json\n│   └── .env.example\n├── docs/                 # Documentación\n│   ├── FUNCTIONAL.md     # Documento funcional\n│   ├── TECHNICAL.md      # Documento técnico\n│   └── API.md            # Especificación API\n└── README.md\n```\n\n## Setup\n\n### Requisitos previos\n\n- Flutter 3.x + Dart 3.x\n- Node.js 18+\n- Firebase CLI\n- Git\n\n### Instalación local\n\n#### 1. Clonar el repo\n```bash\ngit clone <repo-url>\ncd moodmapapp\n```\n\n#### 2. Setup de la app Flutter\n```bash\ncd flutter_app\nflutter pub get\ncp .env.example .env\n# Editar .env con credenciales locales\nflutter run\n```\n\n#### 3. Setup de Firebase Functions\n```bash\ncd functions\nnpm install\ncp .env.example .env\n# Editar .env con Firebase project ID y credenciales\nnpm run serve  # Emulador local\n```\n\n#### 4. Conectar Firebase\n\n```bash\n# En flutter_app/\ndart pub global activate flutterfire_cli\nflutterfire configure --project=<YOUR_PROJECT_ID>\n```\n\n## Desarrollo\n\n### App Flutter\n\n```bash\ncd flutter_app\nflutter run -d chrome   # Web\nflutter run -d emulator # Android\nflutter run -d simulator # iOS\n```\n\n### Backend Functions\n\n```bash\ncd functions\nnpm run serve  # Emulador local\nnpm run deploy # Deploy a Firebase\n```\n\n## Testing\n\n```bash\n# Unit tests\nflutter test\n\n# Integration tests\nflutter test --tags=integration\n```\n\n## Despliegue\n\n```bash\n# Build y deploy a Firebase Hosting\nflutter build web\nfirebase deploy --only hosting\n\n# Deploy functions\nfirebase deploy --only functions\n```\n\n## Estructura de datos (Firestore)\n\n### users\n```\nuserId: string\n├── email: string\n├── createdAt: timestamp\n└── lastActiveAt: timestamp\n```\n\n### main_items (adaptar según tu dominio)\n```\nitemId: string\n├── userId: string (referencia)\n├── title: string\n├── description: string\n├── createdAt: timestamp\n└── metadata: map\n```\n\n## APIs disponibles\n\nVer [docs/API.md](docs/API.md) para especificación completa de endpoints.\n\n## Contribuir\n\n1. Fork el repo\n2. Crea una rama para tu feature\n3. Commit y push\n4. Abre un pull request\n\n## Licencia\n\nMIT\n\n## Contacto\n\nEquipo de desarrollo\n"
+}
