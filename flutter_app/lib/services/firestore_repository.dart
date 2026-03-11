@@ -43,13 +43,35 @@ class FirestoreRepository {
   Future<List<MoodEntry>> getMoodEntries(String userId, {int limit = 30}) async {
     final snapshot = await moodEntriesCollection
         .where('userId', isEqualTo: userId)
-        .orderBy('createdAt', descending: true)
         .limit(limit)
         .get();
-    return snapshot.docs.map((doc) => doc.data()).toList();
+
+    // Sort in memory to avoid composite index requirement
+    final entries = snapshot.docs.map((doc) => doc.data()).toList();
+    entries.sort((a, b) => b.createdAt.compareTo(a.createdAt));
+    return entries;
+  }
+
+  Future<void> updateMoodEntry(String entryId, Map<String, dynamic> updates) async {
+    await _db.collection('mood_entries').doc(entryId).update(updates);
   }
 
   Future<void> deleteMoodEntry(String entryId) async {
     await moodEntriesCollection.doc(entryId).delete();
+  }
+
+  // ── Favorite Activities (stored per user) ─────────────
+
+  Future<List<String>> getFavoriteActivities(String userId) async {
+    final doc = await _db.collection('users').doc(userId).get();
+    final data = doc.data();
+    return List<String>.from(data?['favoriteActivities'] ?? []);
+  }
+
+  Future<void> updateFavoriteActivities(
+      String userId, List<String> activityIds) async {
+    await _db.collection('users').doc(userId).update({
+      'favoriteActivities': activityIds,
+    });
   }
 }
