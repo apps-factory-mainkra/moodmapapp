@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"c:\\\\Users\\\\User\\\\Desktop\\\\moodmapapp\\\\flutter_app\\\\lib\\\\screens\"\" 2>/dev/null || echo \"directory not found \")",
+      "Bash(flutter analyze:*)",
+      "Bash(flutter devices:*)",
+      "Bash(flutter pub:*)"
+    ]
+  }
+}

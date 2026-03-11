@@ -1,10 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/app_user.dart';
+import '../models/mood_entry.dart';
 
 class FirestoreRepository {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  // Users collection
+  // ── Users ──────────────────────────────────────────────
+
   CollectionReference<AppUser> get usersCollection {
     return _db.collection('users').withConverter<AppUser>(
       fromFirestore: (doc, _) => AppUser.fromJson(doc.data() ?? {}, doc.id),
@@ -22,33 +24,32 @@ class FirestoreRepository {
   }
 
   Future<void> updateUser(String userId, Map<String, dynamic> updates) async {
-    await usersCollection.doc(userId).update(updates);
+    await _db.collection('users').doc(userId).update(updates);
   }
 
-  // Main items collection (adaptar nombre según tu dominio)
-  CollectionReference get itemsCollection {
-    return _db.collection('items');
+  // ── Mood Entries ───────────────────────────────────────
+
+  CollectionReference<MoodEntry> get moodEntriesCollection {
+    return _db.collection('mood_entries').withConverter<MoodEntry>(
+      fromFirestore: (doc, _) => MoodEntry.fromJson(doc.data() ?? {}, doc.id),
+      toFirestore: (entry, _) => entry.toJson(),
+    );
   }
 
-  Future<void> createItem(String userId, Map<String, dynamic> data) async {
-    await itemsCollection.doc().set({
-      ...data,
-      'userId': userId,
-      'createdAt': FieldValue.serverTimestamp(),
-    });
+  Future<void> saveMoodEntry(MoodEntry entry) async {
+    await moodEntriesCollection.add(entry);
   }
 
-  Future<List<Map<String, dynamic>>> getUserItems(String userId) async {
-    final snapshot = await itemsCollection
+  Future<List<MoodEntry>> getMoodEntries(String userId, {int limit = 30}) async {
+    final snapshot = await moodEntriesCollection
         .where('userId', isEqualTo: userId)
         .orderBy('createdAt', descending: true)
-        .limit(50)
+        .limit(limit)
         .get();
-    
-    return snapshot.docs.map((doc) => {'id': doc.id, ...doc.data() as Map<String, dynamic>}).toList();
+    return snapshot.docs.map((doc) => doc.data()).toList();
   }
 
-  Future<void> deleteItem(String itemId) async {
-    await itemsCollection.doc(itemId).delete();
+  Future<void> deleteMoodEntry(String entryId) async {
+    await moodEntriesCollection.doc(entryId).delete();
   }
 }

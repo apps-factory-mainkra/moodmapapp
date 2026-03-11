@@ -1,6 +1,6 @@
 // Constantes de la aplicación
 class AppConstants {
-  static const appName = '{spec.title}';
+  static const appName = 'MoodMap';
   static const appVersion = '1.0.0';
   
   // Timeouts
